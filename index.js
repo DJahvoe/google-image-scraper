@@ -3,6 +3,11 @@ const fs = require('fs');
 const chalk = require('chalk');
 const { DELAY, CLICK_OFFSET, IMAGE_COUNT } = require('./config');
 
+// Initialize images directory
+if (!fs.existsSync('images')) {
+	fs.mkdirSync('images');
+}
+
 const vocabList = fs.readFileSync('./VocabList.txt', 'utf-8');
 const vocabListArr = vocabList.split('\r\n');
 let vocabToScrap = vocabListArr.length;
